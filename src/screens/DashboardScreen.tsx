@@ -18,6 +18,7 @@ import { Button } from '@/components/ui/button';
 import Layout from '@/components/Layout';
 import Navigation from '@/components/Navigation';
 import LanguageToggle from '@/components/LanguageToggle';
+import StreakCalendar from '@/components/StreakCalendar';
 
 interface UserStats {
   todayPoints: number;
@@ -206,11 +207,21 @@ const DashboardScreen = () => {
           </motion.div>
         </div>
 
-        {/* Waste Segregation Status */}
+        {/* Streak Calendar */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4 }}
+          className="mb-8"
+        >
+          <StreakCalendar />
+        </motion.div>
+
+        {/* Waste Segregation Status */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.5 }}
           className="space-y-6"
         >
           <h2 className="text-xl font-semibold">Waste Segregation Status</h2>
@@ -226,7 +237,7 @@ const DashboardScreen = () => {
                   key={waste.type}
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.5 + index * 0.1 }}
+                  transition={{ delay: 0.6 + index * 0.1 }}
                 >
                   <Card className="card-gradient">
                     <CardContent className="p-6">
@@ -271,7 +282,7 @@ const DashboardScreen = () => {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.8 }}
+          transition={{ delay: 0.9 }}
           className="mt-8 text-center"
         >
           <Button
