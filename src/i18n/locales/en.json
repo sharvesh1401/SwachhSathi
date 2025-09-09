@@ -1,0 +1,69 @@
+{
+  "app": {
+    "name": "SwachhSathi",
+    "tagline": "Act today for a cleaner tomorrow"
+  },
+  "home": {
+    "title": "Scan QR Code",
+    "subtitle": "Scan to start your waste segregation journey",
+    "scanButton": "Open Camera",
+    "manualEntry": "Enter Code Manually",
+    "footer": "Made by Sharvesh and Team"
+  },
+  "dashboard": {
+    "title": "Segregation Dashboard",
+    "todayPoints": "Today's Points",
+    "totalPoints": "Total Points",
+    "currentStreak": "Current Streak",
+    "days": "days",
+    "wetWaste": "Wet Waste",
+    "dryWaste": "Dry Waste",
+    "hazardous": "Hazardous",
+    "segregated": "Segregated",
+    "pending": "Pending"
+  },
+  "training": {
+    "title": "Training & Tips",
+    "tips": "Waste Management Tips",
+    "videos": "Tutorial Videos",
+    "quiz": "Take Quiz",
+    "completed": "Training Completed! Bonus points unlocked!"
+  },
+  "map": {
+    "title": "Garbage Collector",
+    "eta": "ETA",
+    "minutes": "minutes",
+    "notifyMe": "Notify Me",
+    "onTheWay": "Collector is on the way!"
+  },
+  "rewards": {
+    "title": "Rewards Store",
+    "points": "Points",
+    "redeem": "Redeem",
+    "redeemed": "Redeemed!",
+    "insufficientPoints": "Insufficient points"
+  },
+  "leaderboard": {
+    "title": "Leaderboard",
+    "rank": "Rank",
+    "you": "You",
+    "points": "pts"
+  },
+  "settings": {
+    "title": "Settings",
+    "language": "Language",
+    "theme": "Theme",
+    "light": "Light",
+    "dark": "Dark",
+    "notifications": "Notifications"
+  },
+  "navigation": {
+    "home": "Home",
+    "dashboard": "Dashboard",
+    "training": "Training",
+    "map": "Map",
+    "rewards": "Rewards",
+    "leaderboard": "Leaderboard",
+    "settings": "Settings"
+  }
+}

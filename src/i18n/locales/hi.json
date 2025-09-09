@@ -1,0 +1,69 @@
+{
+  "app": {
+    "name": "स्वच्छसाथी",
+    "tagline": "साफ कल के लिए आज कार्य करें"
+  },
+  "home": {
+    "title": "QR कोड स्कैन करें",
+    "subtitle": "अपनी कचरा अलगाव यात्रा शुरू करने के लिए स्कैन करें",
+    "scanButton": "कैमरा खोलें",
+    "manualEntry": "कोड मैन्युअल रूप से दर्ज करें",
+    "footer": "शर्वेश और टीम द्वारा निर्मित"
+  },
+  "dashboard": {
+    "title": "अलगाव डैशबोर्ड",
+    "todayPoints": "आज के अंक",
+    "totalPoints": "कुल अंक",
+    "currentStreak": "वर्तमान स्ट्रीक",
+    "days": "दिन",
+    "wetWaste": "गीला कचरा",
+    "dryWaste": "सूखा कचरा",
+    "hazardous": "खतरनाक",
+    "segregated": "अलग किया गया",
+    "pending": "लंबित"
+  },
+  "training": {
+    "title": "प्रशिक्षण और सुझाव",
+    "tips": "कचरा प्रबंधन सुझाव",
+    "videos": "ट्यूटोरियल वीडियो",
+    "quiz": "क्विज़ लें",
+    "completed": "प्रशिक्षण पूरा! बोनस अंक अनलॉक!"
+  },
+  "map": {
+    "title": "कचरा संग्राहक",
+    "eta": "अनुमानित समय",
+    "minutes": "मिनट",
+    "notifyMe": "मुझे सूचित करें",
+    "onTheWay": "संग्राहक रास्ते में है!"
+  },
+  "rewards": {
+    "title": "पुरस्कार स्टोर",
+    "points": "अंक",
+    "redeem": "रिडीम करें",
+    "redeemed": "रिडीम किया गया!",
+    "insufficientPoints": "अपर्याप्त अंक"
+  },
+  "leaderboard": {
+    "title": "लीडरबोर्ड",
+    "rank": "रैंक",
+    "you": "आप",
+    "points": "अंक"
+  },
+  "settings": {
+    "title": "सेटिंग्स",
+    "language": "भाषा",
+    "theme": "थीम",
+    "light": "हल्का",
+    "dark": "गहरा",
+    "notifications": "सूचनाएं"
+  },
+  "navigation": {
+    "home": "होम",
+    "dashboard": "डैशबोर्ड",
+    "training": "प्रशिक्षण",
+    "map": "मैप",
+    "rewards": "पुरस्कार",
+    "leaderboard": "लीडरबोर्ड",
+    "settings": "सेटिंग्स"
+  }
+}
