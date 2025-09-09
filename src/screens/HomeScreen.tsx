@@ -5,6 +5,8 @@ import Layout from '@/components/Layout';
 import Navigation from '@/components/Navigation';
 import LanguageToggle from '@/components/LanguageToggle';
 import { QRCodeSVG } from 'qrcode.react';
+import { Button } from '@/components/ui/button';
+import { Link } from 'react-router-dom';
 
 const HomeScreen = () => {
   const { t } = useTranslation();
@@ -21,16 +23,31 @@ const HomeScreen = () => {
       <div className="fixed inset-0 interactive-bg opacity-20 -z-10" />
       
       <div className="min-h-screen flex flex-col items-center justify-center p-6 relative">
-        {/* Title */}
+        {/* App Name and Tagline */}
         <motion.div
           initial={{ opacity: 0, y: -30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="text-center mb-12"
+          className="text-center mb-8"
         >
-          <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-2">
-            Your Household QR
+          <h1 className="text-5xl md:text-6xl font-bold text-primary mb-2">
+            SwachhSathi
           </h1>
+          <p className="text-lg text-muted-foreground">
+            Act today for a cleaner tomorrow.
+          </p>
+        </motion.div>
+
+        {/* Title */}
+        <motion.div
+          initial={{ opacity: 0, y: -30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+          className="text-center mb-6"
+        >
+          <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-2">
+            Your Household QR
+          </h2>
         </motion.div>
 
         {/* QR Code Container */}
@@ -40,7 +57,7 @@ const HomeScreen = () => {
           transition={{ 
             duration: 1,
             ease: "easeOut",
-            delay: 0.3
+            delay: 0.4
           }}
           className="relative"
         >
@@ -68,11 +85,11 @@ const HomeScreen = () => {
               repeat: Infinity,
               ease: "easeInOut"
             }}
-            className="relative bg-white p-8 rounded-3xl shadow-2xl border border-border/20"
+            className="relative bg-white p-6 rounded-3xl shadow-2xl border border-border/20"
           >
             <QRCodeSVG
               value={householdId}
-              size={280}
+              size={250}
               level="M"
               includeMargin={true}
               fgColor="#2d3748"
@@ -89,6 +106,21 @@ const HomeScreen = () => {
           </motion.div>
         </motion.div>
 
+        {/* Action Buttons */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut", delay: 0.6 }}
+          className="flex gap-4 mt-8"
+        >
+          <Link to="/dashboard">
+            <Button variant="outline" size="lg" className="font-semibold">Dashboard</Button>
+          </Link>
+          <Link to="/map">
+            <Button size="lg" className="font-semibold btn-primary">Maps</Button>
+          </Link>
+        </motion.div>
+
         {/* Footer */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -96,12 +128,21 @@ const HomeScreen = () => {
           transition={{ 
             duration: 0.8,
             ease: "easeOut",
-            delay: 0.6
+            delay: 0.8
           }}
           className="mt-12 text-center"
         >
           <p className="text-muted-foreground text-sm">
-            Made by Sharvesh and Team
+            Made by{' '}
+            <a
+              href="https://sharveshfolio.netlify.app"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-semibold text-accent hover:underline"
+            >
+              Sharvesh
+            </a>
+            {' '}and Team
           </p>
         </motion.div>
 
