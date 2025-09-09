@@ -1,0 +1,33 @@
+import React from 'react';
+import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+import 'leaflet/dist/leaflet.css';
+import Layout from '@/components/Layout';
+import Navigation from '@/components/Navigation';
+
+const MapScreen = () => {
+  const position: [number, number] = [13.0827, 80.2707]; // Chennai coordinates
+
+  return (
+    <Layout>
+      <Navigation />
+      <div className="container mx-auto p-4">
+        <h1 className="text-3xl font-bold text-center my-6">Waste Collection Map</h1>
+        <div className="h-[600px] w-full">
+          <MapContainer center={position} zoom={13} scrollWheelZoom={false} style={{ height: '100%', width: '100%' }}>
+            <TileLayer
+              attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+            />
+            <Marker position={position}>
+              <Popup>
+                Chennai, Tamil Nadu.
+              </Popup>
+            </Marker>
+          </MapContainer>
+        </div>
+      </div>
+    </Layout>
+  );
+};
+
+export default MapScreen;

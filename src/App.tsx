@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import HomeScreen from "./screens/HomeScreen";
 import DashboardScreen from "./screens/DashboardScreen";
 import TrainingScreen from "./screens/TrainingScreen";
+import MapScreen from "./screens/MapScreen";
 import NotFound from "./pages/NotFound";
 import './i18n';
 
@@ -21,6 +22,7 @@ const App = () => (
           <Route path="/" element={<HomeScreen />} />
           <Route path="/dashboard" element={<DashboardScreen />} />
           <Route path="/training" element={<TrainingScreen />} />
+          <Route path="/map" element={<MapScreen />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
