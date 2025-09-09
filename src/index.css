@@ -2,77 +2,78 @@
 @tailwind components;
 @tailwind utilities;
 
-/* SwachhSathi Design System - Lavender & Dark Blue Theme */
+/* SwachhSathi Design System - Custom Palette */
 
 @layer base {
   :root {
-    /* SwachhSathi Brand Colors */
-    --background: 273 36% 96%;
+    /* Custom Brand Colors */
+    --background: 0 0% 92%; /* Light Gray #EBE9E9 */
     --foreground: 240 10% 15%;
     --card: 0 0% 100%;
     --card-foreground: 240 10% 15%;
     --popover: 0 0% 100%;
     --popover-foreground: 240 10% 15%;
     
-    /* Primary - Deep Blue */
-    --primary: 220 60% 25%;
+    /* Primary - Green */
+    --primary: 100 30% 48%; /* Green #629F56 */
     --primary-foreground: 0 0% 98%;
     
-    /* Secondary - Soft Lavender */
-    --secondary: 270 25% 88%;
+    /* Secondary - Soft Sage */
+    --secondary: 80 15% 76%; /* Soft Sage #C5CCB7 */
     --secondary-foreground: 240 10% 15%;
     
-    /* Accent - Bright Lavender */
-    --accent: 270 40% 75%;
+    /* Accent - Blue */
+    --accent: 200 50% 65%; /* Blue #71ACD6 */
     --accent-foreground: 240 10% 15%;
     
-    /* Success - Green for rewards */
-    --success: 142 70% 45%;
+    /* Success - Green */
+    --success: 100 30% 48%; /* Green #629F56 */
     --success-foreground: 0 0% 100%;
     
-    /* Warning - Orange for alerts */
-    --warning: 38 92% 60%;
+    /* Warning - Orange */
+    --warning: 25 95% 73%; /* Orange #FCB07E */
     --warning-foreground: 0 0% 100%;
     
-    --muted: 270 15% 92%;
+    --muted: 80 15% 85%;
     --muted-foreground: 240 5% 50%;
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;
-    --border: 270 15% 85%;
-    --input: 270 15% 90%;
-    --ring: 270 40% 75%;
+    --border: 80 15% 80%;
+    --input: 80 15% 88%;
+    --ring: 200 50% 65%;
     --radius: 1rem;
     
-    /* SwachhSathi Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(270 40% 75%), hsl(220 60% 25%));
-    --gradient-secondary: linear-gradient(135deg, hsl(270 25% 88%), hsl(270 40% 75%));
-    --gradient-success: linear-gradient(135deg, hsl(142 70% 45%), hsl(142 70% 55%));
-    --gradient-bg: linear-gradient(135deg, hsl(273 36% 96%), hsl(270 25% 92%));
+    /* Custom Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(100 30% 48%), hsl(200 50% 65%));
+    --gradient-secondary: linear-gradient(135deg, hsl(80 15% 76%), hsl(0 0% 92%));
+    --gradient-success: linear-gradient(135deg, hsl(100 30% 48%), hsl(100 30% 55%));
+    --gradient-bg: linear-gradient(135deg, hsl(0 0% 92%), hsl(80 15% 85%));
+    --gradient-interactive: linear-gradient(45deg, hsl(0 0% 92%), hsl(80 15% 76%), hsl(200 50% 65%), hsl(100 30% 48%));
     
     /* Animations */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    --shadow-glow: 0 0 30px hsl(270 40% 75% / 0.3);
-    --shadow-elegant: 0 10px 25px -5px hsl(220 60% 25% / 0.1);
+    --shadow-glow: 0 0 30px hsl(200 50% 65% / 0.3);
+    --shadow-elegant: 0 10px 25px -5px hsl(100 30% 48% / 0.1);
   }
 
   .dark {
     --background: 240 15% 8%;
-    --foreground: 270 25% 95%;
+    --foreground: 0 0% 95%;
     --card: 240 15% 10%;
-    --card-foreground: 270 25% 95%;
+    --card-foreground: 0 0% 95%;
     --popover: 240 15% 10%;
-    --popover-foreground: 270 25% 95%;
-    --primary: 270 40% 75%;
+    --popover-foreground: 0 0% 95%;
+    --primary: 100 30% 48%;
     --primary-foreground: 240 15% 8%;
     --secondary: 240 15% 15%;
-    --secondary-foreground: 270 25% 95%;
-    --accent: 220 60% 45%;
-    --accent-foreground: 270 25% 95%;
+    --secondary-foreground: 0 0% 95%;
+    --accent: 200 50% 65%;
+    --accent-foreground: 0 0% 95%;
     --muted: 240 15% 15%;
-    --muted-foreground: 270 15% 65%;
+    --muted-foreground: 0 0% 65%;
     --border: 240 15% 20%;
     --input: 240 15% 15%;
-    --ring: 270 40% 75%;
+    --ring: 200 50% 65%;
     
     --gradient-bg: linear-gradient(135deg, hsl(240 15% 8%), hsl(240 15% 12%));
   }
@@ -116,9 +117,15 @@
   
   /* Animated Background */
   .animated-bg {
-    background: var(--gradient-primary);
+    background: var(--gradient-interactive);
     background-size: 400% 400%;
     animation: gradient-shift 8s ease infinite;
+  }
+  
+  .interactive-bg {
+    background: var(--gradient-interactive);
+    background-size: 400% 400%;
+    animation: gradient-shift 12s ease infinite;
   }
   
   /* Button Variants */
