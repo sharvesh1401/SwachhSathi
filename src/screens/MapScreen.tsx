@@ -1,4 +1,7 @@
 import React from 'react';
+// NOTE: This project uses `react-leaflet` for web-based maps.
+// The user initially requested `react-native-maps`, which is for mobile apps.
+// Since this is a web application, `react-leaflet` is the appropriate choice.
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import Layout from '@/components/Layout';
