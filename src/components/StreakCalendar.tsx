@@ -1,57 +1,20 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import { Calendar, Flame, CheckCircle } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
-interface StreakDay {
+export interface StreakDay {
   date: string;
   hasActivity: boolean;
   points: number;
 }
 
-const StreakCalendar = () => {
-  const [streakData, setStreakData] = useState<StreakDay[]>([]);
-  const [currentStreak, setCurrentStreak] = useState(0);
+interface StreakCalendarProps {
+  streakData: StreakDay[];
+  currentStreak: number;
+}
 
-  useEffect(() => {
-    // Generate last 30 days of data
-    const generateStreakData = () => {
-      const data: StreakDay[] = [];
-      const today = new Date();
-      
-      for (let i = 29; i >= 0; i--) {
-        const date = new Date(today);
-        date.setDate(today.getDate() - i);
-        
-        // Simulate activity (80% chance of activity for demo)
-        const hasActivity = Math.random() > 0.2;
-        const points = hasActivity ? Math.floor(Math.random() * 15) + 5 : 0;
-        
-        data.push({
-          date: date.toISOString().split('T')[0],
-          hasActivity,
-          points
-        });
-      }
-      
-      return data;
-    };
-
-    const data = generateStreakData();
-    setStreakData(data);
-    
-    // Calculate current streak
-    let streak = 0;
-    for (let i = data.length - 1; i >= 0; i--) {
-      if (data[i].hasActivity) {
-        streak++;
-      } else {
-        break;
-      }
-    }
-    setCurrentStreak(streak);
-  }, []);
-
+const StreakCalendar: React.FC<StreakCalendarProps> = ({ streakData, currentStreak }) => {
   const getDayName = (dateString: string) => {
     const date = new Date(dateString);
     return date.toLocaleDateString('en-US', { weekday: 'short' });

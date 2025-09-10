@@ -7,6 +7,7 @@ import HomeScreen from "./screens/HomeScreen";
 import DashboardScreen from "./screens/DashboardScreen";
 import TrainingScreen from "./screens/TrainingScreen";
 import MapScreen from "./screens/MapScreen";
+import RewardsScreen from "./screens/RewardsScreen";
 import NotFound from "./pages/NotFound";
 import './i18n';
 
@@ -23,6 +24,7 @@ const App = () => (
           <Route path="/dashboard" element={<DashboardScreen />} />
           <Route path="/training" element={<TrainingScreen />} />
           <Route path="/map" element={<MapScreen />} />
+          <Route path="/rewards" element={<RewardsScreen />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

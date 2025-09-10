@@ -18,7 +18,7 @@ import { Button } from '@/components/ui/button';
 import Layout from '@/components/Layout';
 import Navigation from '@/components/Navigation';
 import LanguageToggle from '@/components/LanguageToggle';
-import StreakCalendar from '@/components/StreakCalendar';
+import StreakCalendar, { StreakDay } from '@/components/StreakCalendar';
 
 interface UserStats {
   todayPoints: number;
@@ -45,6 +45,7 @@ const DashboardScreen = () => {
     dryWastePending: 0,
     hazardousPending: 0,
   });
+  const [streakData, setStreakData] = useState<StreakDay[]>([]);
 
   const [showPointsAnimation, setShowPointsAnimation] = useState(false);
 
@@ -52,13 +53,18 @@ const DashboardScreen = () => {
     // Load stats from localStorage or initialize with demo data
     const savedStats = localStorage.getItem('swachh-user-stats');
     if (savedStats) {
-      setStats(JSON.parse(savedStats));
+      const parsedStats = JSON.parse(savedStats);
+      setStats(parsedStats);
+      // We need to generate streak data consistent with the saved streak
+      const { data } = generateStreakData(parsedStats.currentStreak);
+      setStreakData(data);
     } else {
       // Demo data
+      const { data, streak } = generateStreakData();
       const demoStats: UserStats = {
         todayPoints: 12,
         totalPoints: 248,
-        currentStreak: 7,
+        currentStreak: streak,
         wetWasteSegregated: 85,
         dryWasteSegregated: 92,
         hazardousWasteSegregated: 67,
@@ -67,6 +73,7 @@ const DashboardScreen = () => {
         hazardousPending: 33,
       };
       setStats(demoStats);
+      setStreakData(data);
       localStorage.setItem('swachh-user-stats', JSON.stringify(demoStats));
     }
   }, []);
@@ -81,6 +88,43 @@ const DashboardScreen = () => {
     localStorage.setItem('swachh-user-stats', JSON.stringify(newStats));
     setShowPointsAnimation(true);
     setTimeout(() => setShowPointsAnimation(false), 1000);
+  };
+
+  const generateStreakData = (currentStreak?: number): { data: StreakDay[], streak: number } => {
+    const data: StreakDay[] = [];
+    const today = new Date();
+    let calculatedStreak = 0;
+
+    for (let i = 29; i >= 0; i--) {
+      const date = new Date(today);
+      date.setDate(today.getDate() - i);
+
+      let hasActivity: boolean;
+      if (currentStreak !== undefined) {
+        hasActivity = i < currentStreak;
+      } else {
+        hasActivity = Math.random() > 0.2;
+      }
+
+      const points = hasActivity ? Math.floor(Math.random() * 15) + 5 : 0;
+
+      data.push({
+        date: date.toISOString().split('T')[0],
+        hasActivity,
+        points
+      });
+    }
+
+    // Calculate current streak from the generated data
+    for (let i = data.length - 1; i >= 0; i--) {
+      if (data[i].hasActivity) {
+        calculatedStreak++;
+      } else {
+        break;
+      }
+    }
+
+    return { data, streak: calculatedStreak };
   };
 
   const wasteTypes = [
@@ -214,7 +258,7 @@ const DashboardScreen = () => {
           transition={{ delay: 0.4 }}
           className="mb-8"
         >
-          <StreakCalendar />
+          <StreakCalendar streakData={streakData} currentStreak={stats.currentStreak} />
         </motion.div>
 
         {/* Waste Segregation Status */}
