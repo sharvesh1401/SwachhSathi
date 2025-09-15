@@ -1,0 +1,210 @@
+{
+  "app": {
+    "name": "SwachhSathi",
+    "tagline": "Act today for a cleaner tomorrow."
+  },
+  "home": {
+    "loginTitle": "Choose Your Role",
+    "loginDescription": "Select how you want to use the platform.",
+    "householdUser": "Household User",
+    "commercialUser": "Commercial User",
+    "householdLogin": "Household Login",
+    "aadhaarNumber": "Aadhaar Number",
+    "commercialLogin": "Commercial Login",
+    "gstNumber": "GST Number",
+    "otp": "OTP",
+    "login": "Login",
+    "footer": "Made by Sharvesh and Team"
+  },
+  "dashboard": {
+    "title": "Segregation Dashboard",
+    "todayPoints": "Today's Points",
+    "totalPoints": "Total Points",
+    "currentStreak": "Current Streak",
+    "days": "days",
+    "wetWaste": "Wet Waste",
+    "dryWaste": "Dry Waste",
+    "hazardous": "Hazardous",
+    "segregated": "Segregated",
+    "pending": "Pending"
+  },
+  "training": {
+    "title": "Training & Tips",
+    "tips": "Waste Management Tips",
+    "videos": "Tutorial Videos",
+    "quiz": "Take Quiz",
+    "completed": "Training Completed! Bonus points unlocked!",
+    "completedDescription": "You've earned +10 bonus points!",
+    "tipsSection": "Tips",
+    "videosSection": "Videos",
+    "quizSection": "Quiz",
+    "markAsRead": "Mark as Read",
+    "watch": "Watch",
+    "startQuiz": "Start Quiz (+10 points)",
+    "quizCompleted": "Quiz Completed!",
+    "testKnowledge": "Test your knowledge and earn bonus points!",
+    "tips_content": {
+      "segregate_title": "Segregate at Source",
+      "segregate_content": "Separate wet (biodegradable), dry (recyclables), and hazardous waste at home. This makes processing faster and cheaper.",
+      "compost_title": "Wet Waste → Compost",
+      "compost_content": "Food scraps and garden waste can be composted locally, reducing landfill weight and producing useful compost.",
+      "clean_title": "Clean Recyclables",
+      "clean_content": "Rinse plastic bottles and containers before tossing into recyclables — clean items fetch higher recycling value.",
+      "hazardous_title": "Handle Hazardous Waste Carefully",
+      "hazardous_content": "Batteries, e-waste, chemicals must be kept separate and dropped at designated collection points.",
+      "reduce_title": "Reduce & Reuse",
+      "reduce_content": "Avoid single-use plastics, favor reusable items, and repair before discarding. Less waste = lower collection costs.",
+      "report_title": "Report & Reward",
+      "report_content": "Use the app to report illegal dumping and earn points when you follow correct segregation habits."
+    },
+    "videos_content": {
+      "segregation_title": "How to Segregate Waste at Home",
+      "composting_title": "Composting Basics",
+      "ewaste_title": "E-waste and Battery Disposal"
+    }
+  },
+  "map": {
+    "title": "Waste Collection Map",
+    "eta": "ETA",
+    "minutes": "minutes",
+    "notifyMe": "Notify Me",
+    "onTheWay": "Collector is on the way!",
+    "location": "Chennai, Tamil Nadu."
+  },
+  "rewards": {
+    "title": "Rewards Store",
+    "points": "Points",
+    "redeem": "Redeem",
+    "redeemed": "Redeemed!",
+    "insufficientPoints": "Insufficient points",
+    "underConstruction": "This page is under construction. Check back later for rewards!"
+  },
+  "leaderboard": {
+    "title": "Leaderboard",
+    "rank": "Rank",
+    "you": "You",
+    "points": "pts"
+  },
+  "settings": {
+    "title": "Settings",
+    "language": "Language",
+    "theme": "Theme",
+    "light": "Light",
+    "dark": "Dark",
+    "notifications": "Notifications"
+  },
+  "navigation": {
+    "home": "Home",
+    "dashboard": "Dashboard",
+    "training": "Training",
+    "map": "Map",
+    "rewards": "Rewards",
+    "carbonCredits": "Carbon Credits"
+  },
+  "dashboard_household": {
+    "title": "Household Dashboard",
+    "tagline": "Your personal eco-center.",
+    "totalPoints": "Total Points",
+    "currentStreak": "Current Streak",
+    "days": "days",
+    "qrTitle": "Your Household QR",
+    "classificationTitle": "Trash Classification",
+    "segregationTitle": "Waste Segregation (Last 30 Days)",
+    "total": "Total",
+    "kg": "kg",
+    "streakTitle": "Streak Calendar",
+    "reportTitle": "Report an Issue",
+    "reportDescription": "Spotted illegal dumping? Help keep your community clean.",
+    "reportButton": "Report Illegal Dumping",
+    "waste_types": {
+      "organic": "Organic",
+      "plastic": "Plastic",
+      "paper": "Paper",
+      "metals": "Metals",
+      "other": "Other"
+    }
+  },
+  "dashboard_commercial": {
+    "title": "Commercial Dashboard",
+    "tagline": "Your partner in sustainable business.",
+    "carbonCredits": "Carbon Credits",
+    "creditsMonth": "+5.2 this month",
+    "complianceRate": "Compliance Rate",
+    "complianceNote": "Above city average",
+    "qrTitle": "Your Store QR",
+    "analysisTitle": "Bulk Waste Analysis",
+    "segregationTitle": "Bulk Waste (Last 30 Days)",
+    "total": "Total",
+    "tons": "tons",
+    "reportTitle": "Report an Issue",
+    "reportDescription": "Spotted illegal dumping? Help maintain a clean commercial zone. Earn Carbon Credits for valid reports.",
+    "reportButton": "Report Illegal Dumping",
+    "currentStreak": "Current Streak",
+    "days": "days",
+    "streakTitle": "Streak Calendar",
+    "waste_types": {
+      "recyclable": "Recyclable",
+      "organic": "Organic",
+      "construction": "Construction",
+      "hazardous": "Hazardous"
+    }
+  },
+  "geotag_camera": {
+    "toast": {
+      "ready": "Camera and location ready!",
+      "locationError": "Location Error: {{message}}",
+      "cameraError": "Camera Error: {{message}}",
+      "cameraErrorPermission": "Camera Error. Please grant permission.",
+      "notReady": "Camera or location not ready.",
+      "capturing": "Capturing photo and submitting report...",
+      "captureFailed": "Failed to capture photo.",
+      "submitFailed": "Failed to submit report.",
+      "submitSuccess": "Report submitted successfully!",
+      "unknownError": "An unknown error occurred during upload."
+    },
+    "error": {
+      "title": "Error Accessing Media",
+      "tryAgain": "Try Again"
+    },
+    "locationText": "Lat: {{lat}}, Lng: {{lng}} (Acc: {{accuracy}}m)",
+    "captureAriaLabel": "Capture and Submit Report",
+    "instruction": "Press the button to capture a geotagged photo and report the issue."
+  },
+  "qr_scanner": {
+    "startCamera": "Start Camera",
+    "stopCamera": "Stop Camera",
+    "simulateQR": "Simulate QR Scan (Demo)",
+    "cameraNotActive": "Camera not active",
+    "instruction": "Point camera at QR code to scan automatically"
+  },
+  "streak_calendar": {
+    "title": "Activity Streak",
+    "noActivity": "No activity",
+    "activityCompleted": "Activity completed"
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success",
+    "cancel": "Cancel",
+    "confirm": "Confirm",
+    "close": "Close",
+    "save": "Save",
+    "delete": "Delete",
+    "edit": "Edit",
+    "view": "View",
+    "back": "Back",
+    "next": "Next",
+    "previous": "Previous",
+    "submit": "Submit",
+    "retry": "Retry",
+    "refresh": "Refresh"
+  },
+  "errors": {
+    "404": "404",
+    "pageNotFound": "Oops! Page not found",
+    "returnHome": "Return to Home",
+    "somethingWentWrong": "Something went wrong",
+    "tryAgain": "Try again"
+  }
+}

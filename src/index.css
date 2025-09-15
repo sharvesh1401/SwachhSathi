@@ -1,0 +1,209 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* SwachhSathi Design System - Custom Palette */
+
+@layer base {
+  :root {
+    /* Custom Brand Colors */
+    --background: 0 0% 92%; /* Light Gray #EBE9E9 */
+    --foreground: 240 10% 15%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 15%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 15%;
+    
+    /* Primary - Green */
+    --primary: 100 30% 48%; /* Green #629F56 */
+    --primary-foreground: 0 0% 98%;
+    
+    /* Secondary - Soft Sage */
+    --secondary: 80 15% 76%; /* Soft Sage #C5CCB7 */
+    --secondary-foreground: 240 10% 15%;
+    
+    /* Accent - Blue */
+    --accent: 200 50% 65%; /* Blue #71ACD6 */
+    --accent-foreground: 240 10% 15%;
+    
+    /* Success - Green */
+    --success: 100 30% 48%; /* Green #629F56 */
+    --success-foreground: 0 0% 100%;
+    
+    /* Warning - Orange */
+    --warning: 25 95% 73%; /* Orange #FCB07E */
+    --warning-foreground: 0 0% 100%;
+    
+    --muted: 80 15% 85%;
+    --muted-foreground: 240 5% 50%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 80 15% 80%;
+    --input: 80 15% 88%;
+    --ring: 200 50% 65%;
+    --radius: 1rem;
+    
+    /* Custom Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(100 30% 48%), hsl(200 50% 65%));
+    --gradient-secondary: linear-gradient(135deg, hsl(80 15% 76%), hsl(0 0% 92%));
+    --gradient-success: linear-gradient(135deg, hsl(100 30% 48%), hsl(100 30% 55%));
+    --gradient-bg: linear-gradient(135deg, hsl(0 0% 92%), hsl(80 15% 85%));
+    --gradient-interactive: linear-gradient(45deg, hsl(0 0% 92%), hsl(80 15% 76%), hsl(200 50% 65%), hsl(100 30% 48%));
+    
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --shadow-glow: 0 0 30px hsl(200 50% 65% / 0.3);
+    --shadow-elegant: 0 10px 25px -5px hsl(100 30% 48% / 0.1);
+  }
+
+  .dark {
+    --background: 240 15% 8%;
+    --foreground: 0 0% 95%;
+    --card: 240 15% 10%;
+    --card-foreground: 0 0% 95%;
+    --popover: 240 15% 10%;
+    --popover-foreground: 0 0% 95%;
+    --primary: 100 30% 48%;
+    --primary-foreground: 240 15% 8%;
+    --secondary: 240 15% 15%;
+    --secondary-foreground: 0 0% 95%;
+    --accent: 200 50% 65%;
+    --accent-foreground: 0 0% 95%;
+    --muted: 240 15% 15%;
+    --muted-foreground: 0 0% 65%;
+    --border: 240 15% 20%;
+    --input: 240 15% 15%;
+    --ring: 200 50% 65%;
+    
+    --gradient-bg: linear-gradient(135deg, hsl(240 15% 8%), hsl(240 15% 12%));
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-background text-foreground overflow-x-hidden;
+    background: var(--gradient-bg);
+    min-height: 100vh;
+  }
+  
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    @apply bg-muted/50;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    @apply bg-accent/60 rounded-full;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-accent;
+  }
+}
+
+@layer components {
+  /* QR Scanner Styles */
+  .qr-scanner {
+    @apply relative w-full max-w-sm mx-auto rounded-2xl overflow-hidden;
+    box-shadow: var(--shadow-glow);
+  }
+  
+  /* Animated Background */
+  .animated-bg {
+    background: var(--gradient-interactive);
+    background-size: 400% 400%;
+    animation: gradient-shift 8s ease infinite;
+  }
+  
+  .interactive-bg {
+    background: var(--gradient-interactive);
+    background-size: 400% 400%;
+    animation: gradient-shift 12s ease infinite;
+  }
+  
+  /* Button Variants */
+  .btn-primary {
+    background: var(--gradient-primary);
+    @apply text-primary-foreground font-semibold py-4 px-8 rounded-2xl transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105;
+  }
+  
+  .btn-secondary {
+    background: var(--gradient-secondary);
+    @apply text-secondary-foreground font-medium py-3 px-6 rounded-xl transition-all duration-300;
+  }
+  
+  .btn-success {
+    background: var(--gradient-success);
+    @apply text-success-foreground font-semibold py-3 px-6 rounded-xl transition-all duration-300;
+  }
+  
+  /* Card Styles */
+  .card-gradient {
+    @apply bg-card/80 backdrop-blur-sm border border-border/50 rounded-2xl p-6 transition-all duration-300;
+    box-shadow: var(--shadow-elegant);
+  }
+  
+  .card-gradient:hover {
+    @apply scale-[1.02];
+    box-shadow: var(--shadow-glow);
+  }
+  
+  /* Points Animation */
+  .points-bounce {
+    animation: points-bounce 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+  
+  /* Streak Glow */
+  .streak-glow {
+    @apply relative;
+  }
+  
+  .streak-glow::before {
+    content: '';
+    @apply absolute inset-0 rounded-full blur-lg opacity-30;
+    background: var(--gradient-success);
+    animation: pulse 2s infinite;
+  }
+}
+
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+@keyframes points-bounce {
+  0% { transform: scale(0) rotate(0deg); }
+  50% { transform: scale(1.2) rotate(180deg); }
+  100% { transform: scale(1) rotate(360deg); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.6; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+.float-animation {
+  animation: float 3s ease-in-out infinite;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
