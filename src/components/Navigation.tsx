@@ -4,12 +4,13 @@ import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 import { 
   Home, 
-  BarChart3, 
+  LogIn, 
   GraduationCap, 
   Map, 
   Gift, 
   Recycle,
   Menu,
+  LogOut,
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
@@ -24,9 +25,11 @@ const Navigation: React.FC<NavigationProps> = ({ userType }) => {
   const { t } = useTranslation();
   const [isOpen, setIsOpen] = React.useState(false);
 
+  // Check if user is logged in (you might want to replace this with actual auth state)
+  const isLoggedIn = location.pathname !== '/';
+
   const baseNavItems = [
-    { path: '/', icon: Home, label: t('navigation.home') },
-    { path: '/dashboard', icon: BarChart3, label: t('navigation.dashboard') },
+    { path: '/dashboard', icon: Home, label: t('navigation.home') },
     { path: '/training', icon: GraduationCap, label: t('navigation.training') },
     { path: '/map', icon: Map, label: t('navigation.map') },
   ];
@@ -43,6 +46,17 @@ const Navigation: React.FC<NavigationProps> = ({ userType }) => {
 
   const handleNavigation = (path: string) => {
     navigate(path);
+    setIsOpen(false);
+  };
+
+  const handleAuthAction = () => {
+    if (isLoggedIn) {
+      // Handle logout logic here
+      navigate('/');
+    } else {
+      // Handle login logic here
+      navigate('/dashboard'); // Or your actual login route
+    }
     setIsOpen(false);
   };
 
@@ -106,6 +120,28 @@ const Navigation: React.FC<NavigationProps> = ({ userType }) => {
                 </motion.div>
               );
             })}
+          </div>
+
+          {/* Auth Button at Bottom */}
+          <div className="p-4 border-t border-border/50">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3 }}
+            >
+              <Button
+                variant="outline"
+                className="w-full justify-start h-12 border-primary/20 hover:bg-primary/10"
+                onClick={handleAuthAction}
+              >
+                {isLoggedIn ? (
+                  <LogOut className="h-5 w-5 mr-3" />
+                ) : (
+                  <LogIn className="h-5 w-5 mr-3" />
+                )}
+                {t('navigation.loginLogout')}
+              </Button>
+            </motion.div>
           </div>
         </div>
       </SheetContent>

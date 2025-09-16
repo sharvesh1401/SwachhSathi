@@ -94,6 +94,9 @@
     "notifications": "Notifications"
   },
   "navigation": {
+    "loginLogout" : "Login / Logout",
+    "logout": "Logout",
+    "login": "Login",
     "home": "Home",
     "dashboard": "Dashboard",
     "training": "Training",
