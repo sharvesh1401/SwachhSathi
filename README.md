@@ -15,7 +15,7 @@ SwachhSathi is a prototype developed for the **Smart India Hackathon** with the 
 - 🙍 **Limited Citizen Engagement:** Awareness campaigns fail to sustain behavioral change.  
 
 ### 🛠️ Solution Architecture: A Three-Pillar Approach
-![Solution Architecture](images\Solution_Architecture.png)
+![Solution Architecture](images/Solution_Architecture.png)
 1. **📱 User Application**
    - 🧑‍🏫 In-app multi-lingual training modules.  
    - 🏠 QR-based accountability for each household.  
