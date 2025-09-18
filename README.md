@@ -1,7 +1,6 @@
 # **SwachhSathi** ♻️
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-[![Smart India Hackathon](https://img.shields.io/badge/SIH-2025-blue.svg)]()
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)]()
+[![Smart India Hackathon](https://img.shields.io/badge/SIH-2025-blue.svg)](https://sih.gov.in/)
 ---
 ## **Description** 📝
 
@@ -15,7 +14,7 @@ SwachhSathi is a prototype developed for the **Smart India Hackathon** with the 
 - 🙍 **Limited Citizen Engagement:** Awareness campaigns fail to sustain behavioral change.  
 
 ### 🛠️ Solution Architecture: A Three-Pillar Approach
-![Solution Architecture](images\Solution_Architecture.png)
+![Solution Architecture](images/Solution_Architecture.png)
 1. **📱 User Application**
    - 🧑‍🏫 In-app multi-lingual training modules.  
    - 🏠 QR-based accountability for each household.  
