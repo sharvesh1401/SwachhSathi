@@ -19,7 +19,6 @@ import Layout from '@/components/Layout';
 import Navigation from '@/components/Navigation';
 import LanguageToggle from '@/components/LanguageToggle';
 import StreakCalendar, { StreakDay } from '@/components/StreakCalendar';
-
 import { Separator } from '@/components/ui/separator';
 
 interface WasteBreakdown {
@@ -38,13 +37,14 @@ interface UserStats {
 
 const HouseholdDashboard = () => {
   const { t } = useTranslation();
+  const [userId, setUserId] = useState<string>("");
+  const [qrValue, setQrValue] = useState<string>("");
   const [stats, setStats] = useState<UserStats>({
     totalPoints: 350,
     currentStreak: 12,
     wasteBreakdown: { organic: 25.2, plastic: 18.5, paper: 22.1, metals: 8.7, other: 4.0 }
   });
   const [streakData, setStreakData] = useState<StreakDay[]>([]);
-  const householdId = 'HOUSEHOLD-12345XYZ'; // Dummy ID
 
   // Dummy data for the pie chart
   const analyticsData = [
@@ -54,10 +54,42 @@ const HouseholdDashboard = () => {
   ];
 
   useEffect(() => {
-    // This is where you might fetch real data in the future
+    // Get or create user ID from localStorage/backend
+    const storedId = localStorage.getItem("householdUserId");
+    if (storedId) {
+      setUserId(storedId);
+      setQrValue(`household:${storedId}`);
+    } else {
+      // Generate a unique ID for the user
+      const newUserId = generateUniqueId();
+      setUserId(newUserId);
+      setQrValue(`household:${newUserId}`);
+      
+      // Store the user ID in localStorage
+      localStorage.setItem("householdUserId", newUserId);
+      
+      // Send the user ID to the backend
+      fetch("http://localhost:5000/api/users", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ id: newUserId })
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log("User created in backend:", data);
+        })
+        .catch((err) => console.error("Error creating user:", err));
+    }
+
+    // Generate streak data
     const { data } = generateStreakData(stats.currentStreak);
     setStreakData(data);
   }, [stats.currentStreak]);
+
+  // Function to generate a unique ID
+  const generateUniqueId = () => {
+    return 'household-' + Date.now() + '-' + Math.random().toString(36).substr(2, 9);
+  };
 
   const generateStreakData = (currentStreak: number): { data: StreakDay[], streak: number } => {
     const data: StreakDay[] = [];
@@ -113,17 +145,27 @@ const HouseholdDashboard = () => {
               </Card>
             </motion.div>
 
-            {/* QR Code */}
+            {/* Household QR Code */}
             <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.3 }}>
               <Card className="card-gradient group relative overflow-hidden">
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2"><QrCode/> {t('dashboard_household.qrTitle')}</CardTitle>
                 </CardHeader>
-                <CardContent className="flex justify-center items-center">
-                  <div className="p-4 bg-white rounded-lg transition-all duration-300 group-hover:bg-gray-100">
-                     <div className="absolute inset-0 bg-gradient-to-tr from-primary/10 to-accent/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"/>
-                    <QRCodeSVG value={householdId} size={180} />
-                  </div>
+                <CardContent className="flex flex-col items-center">
+                  {qrValue ? (
+                    <>
+                      <div className="p-4 bg-white rounded-lg transition-all duration-300 group-hover:bg-gray-100 mb-4">
+                        <div className="absolute inset-0 bg-gradient-to-tr from-primary/10 to-accent/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"/>
+                        <QRCodeSVG 
+                          value={qrValue} 
+                          size={180} 
+                        />
+                      </div>
+                      <p className="text-sm text-muted-foreground">Household ID: {userId}</p>
+                    </>
+                  ) : (
+                    <p className="text-muted-foreground">Loading QR code...</p>
+                  )}
                 </CardContent>
               </Card>
             </motion.div>
